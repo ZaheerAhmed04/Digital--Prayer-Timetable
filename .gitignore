@@ -1,0 +1,12 @@
+# Local Netlify folder
+.netlify/
+
+# Environment variables (SECRET)
+.env
+
+# Node dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+

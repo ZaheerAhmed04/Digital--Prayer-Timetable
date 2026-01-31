@@ -114,29 +114,29 @@ function initZawal() {
     zawalTimeEl.textContent = formatTime(zawalTime);
   }
 
-  // Makrooh warning
-  function updateMakrooh() {
-    const now = new Date();
-    const warningEl = document.getElementById("zawalWarning"); // HTML me ek span for warning
-    if (!warningEl) return;
+// Makrooh warning
+function updateMakrooh() {
+  const now = new Date();
+  const warningEl = document.getElementById("zawalWarning");
+  if (!warningEl) return;
 
-    if (now >= sunrise && now <= makroohMorningEnd) {
-      // Morning Makrooh
-      warningEl.textContent = "صُبح کے 20 منٹ تک نماز پڑھنا مکروہ ہے";
-      warningEl.classList.remove("green");
-      warningEl.classList.add("red");
-    } else if (now >= makroohEveningStart && now <= sunset) {
-      // Evening Makrooh
-      warningEl.textContent = "شام کے 20 منٹ تک نماز پڑھنا مکروہ ہے";
-      warningEl.classList.remove("green");
-      warningEl.classList.add("red");
-    } else {
-      // Makrooh khatam
-      warningEl.textContent = "مکروہ وقت ختم ہو چکا ہے";
-      warningEl.classList.remove("red");
-      warningEl.classList.add("green");
-    }
+  if (now >= sunrise && now <= makroohMorningEnd) {
+    // Morning Makrooh
+    warningEl.textContent = "ابھی مکروہ وقت  ہے ";
+    warningEl.classList.remove("green");
+    warningEl.classList.add("red");
+  } else if (now >= makroohEveningStart && now <= sunset) {
+    // Evening Makrooh
+    warningEl.textContent = "ابھی مکروہ وقت  ہے ";
+    warningEl.classList.remove("green");
+    warningEl.classList.add("red");
+  } else {
+    // کوئی مکروہ وقت نہیں — سبز رنگ میں مثبت پیغام
+    warningEl.textContent = "ابھی مکروہ وقت نہیں ہے ✓";  // یا "نماز کا بہترین وقت ہے" یا صرف "✔"
+    warningEl.classList.remove("red");
+    warningEl.classList.add("green");
   }
+}
 
   // Run initially + update every minute
   updateMakrooh();
